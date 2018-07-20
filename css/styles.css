@@ -1,0 +1,13 @@
+div.bordered {
+  border-radius: 15px;
+     border: 1px solid;
+}
+.time {
+  color:blue;
+}
+.underscored{
+  border-bottom: 1px solid #aaa;
+}
+.author{
+font-style: italic;
+}
