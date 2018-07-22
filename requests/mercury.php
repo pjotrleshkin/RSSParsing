@@ -1,8 +1,16 @@
 <?php
 $exampleLink = "https://trackchanges.postlight.com/building-awesome-cms-f034344d8ed";
 
-$link = $_POST['url'];
-var_dump($_POST['url']);
+$link = "";
+
+if (isset($_POST['title'])) {
+    $link = $_POST['url'];
+} else  {
+    $link = $_GET['url'];
+}
+
+
+var_dump($_GET['url']);
 echo "<br><br>";
 
 $ch = curl_init();
