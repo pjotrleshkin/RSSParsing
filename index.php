@@ -21,7 +21,7 @@ foreach ($rss->channel->item as $item) {
 echo '<div class = "col-sm-4 bordered">';
 echo "<p  class = 'time underscored'>".$item->pubDate."</p>";
 //store link to resourse in data-link attribute
-echo "<a href='requests/mercury.php' data-link = ".$item->link." target='_blank' onClick = 'passDataLink()'>";
+echo "<a href='requests/mercury.php' data-link = ".$item->link." target='_blank'>";
 //funky syntax, but retrieves the image from XML
 echo '<img class="card-img-top" src="'.$item[1]->children('media', True)->content->attributes().'" alt="Sorry, there is no picture">';
 echo '<h6 class="card-title">'.$item->title.'</h6>'.'</a>';
@@ -36,16 +36,13 @@ if ($item->author == true) {
 echo '</div>';
 }?>
 <script>
-$('a').click(function() {
 
+$('a').click(function() {
+  var webadress =  $(this).data('link');
     $.ajax({
-       url: '/requests/mercury.php', //This is the current doc
+       url: '/requests/mercury.php', 
        type: "POST",
-       data: {
-           action : 'ajax_action',
-           postid : $(this).data('id'),
-           //$(this).data() works because it's a standard AJAX call
-       },
+       data: ({url:webadress}),
        success: function(data){
            console.log(data);
        }
