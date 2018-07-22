@@ -2,7 +2,8 @@
 $exampleLink = "https://trackchanges.postlight.com/building-awesome-cms-f034344d8ed";
 
 $link = $_POST['url'];
-
+var_dump($_POST['url']);
+echo "<br><br>";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "https://mercury.postlight.com/parser?url=".$link);
