@@ -1,7 +1,7 @@
 <?php
-$link = "https://trackchanges.postlight.com/building-awesome-cms-f034344d8ed";
-var_dump($_POST);
-echo 'url: ' . $_POST['url'].' <br>';
+$exampleLink = "https://trackchanges.postlight.com/building-awesome-cms-f034344d8ed";
+
+$link = $_POST['url'];
 // создание нового ресурса cURL
 $ch = curl_init();
 // установка URL и других необходимых параметров
@@ -13,4 +13,5 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 $x = curl_exec($ch);
 // завершение сеанса и освобождение ресурсов
 curl_close($ch);
+
 ?>

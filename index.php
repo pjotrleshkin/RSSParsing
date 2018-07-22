@@ -36,19 +36,25 @@ if ($item->author == true) {
 echo '</div>';
 }?>
 <script>
-
 $('a').click(function() {
-  var webadress =  $(this).data('link');
+
+
+
+
     $.ajax({
-       url: '/requests/mercury.php', 
-       type: "POST",
-       data: ({url:webadress}),
+      type: "POST",
+      url: '/requests/mercury.php',
+      data: {url : $(this).data('link')},
        success: function(data){
            console.log(data);
        }
    });
+
+
+
   });
 </script>
+
 </div>
 </div>
 </body>
