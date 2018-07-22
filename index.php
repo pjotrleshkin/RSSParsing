@@ -4,7 +4,6 @@
 //include header and navbar
 include "head.html";
 include "navbar.html"?>
-
 <div class="container">
 <div class="row">
 <?php
@@ -38,7 +37,19 @@ echo '</div>';
 }?>
 <script>
 $('a').click(function() {
-    alert($(this).data('link'));
+
+    $.ajax({
+       url: '/requests/mercury.php', //This is the current doc
+       type: "POST",
+       data: {
+           action : 'ajax_action',
+           postid : $(this).data('id'),
+           //$(this).data() works because it's a standard AJAX call
+       },
+       success: function(data){
+           console.log(data);
+       }
+   });
   });
 </script>
 </div>
