@@ -3,10 +3,11 @@ $exampleLink = "https://trackchanges.postlight.com/building-awesome-cms-f034344d
 
 $link = "";
 
-if (isset($_POST['title'])) {
-    $link = $_POST['url'];
-} else  {
+if (isset($_GET['url'])) {
     $link = $_GET['url'];
+} else  {
+    echo "Sorry, there are no url passed to Mercury API";
+    echo "</br>";
 }
 $ch = curl_init();
 
